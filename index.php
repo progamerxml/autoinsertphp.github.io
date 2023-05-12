@@ -53,7 +53,7 @@ date_default_timezone_set("Asia/Jakarta");
     <div style="width : 80%; margin:auto;">
         <?php
             $tanggal = date("Y-m-d", strtotime("yesterday")); echo "kemaren tanggal : ".$tanggal; echo " sekarang jam : ".date("H:i:s")."<br><br>";
-            $jam = date("H:i",strtotime("13:51")); //var_dump($jam);
+            $jam = date("H:i",strtotime("01:00")); //var_dump($jam);
             $sek = date("H:i");
             if ($jam == $sek)
             {
