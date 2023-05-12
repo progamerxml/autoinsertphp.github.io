@@ -66,6 +66,8 @@ date_default_timezone_set("Asia/Jakarta");
                 $jsql = mysqli_num_rows($esql); //var_dump($jsql);
                 for ($i = 1; $i < $jsql; $i++){
                     $kode = mysqli_fetch_object($esql);
+                    $tsyntax = "select tglsukses from log_purchase where vtype like '%$kode->kode%' and status = $sttsok and tanggal like '%$tgl_data%'";
+                    $wts = mysqli_fetch_object(mysqli_query($konek, $tsyntax)); $jam = date("H:i", strtotime($wts->tglsukses)); //echo $jam."<br>";
                     $strxok = "select count(status) as jml from xml_test.log_purchase where vtype like '%$kode->kode%' and status = $sttsok and tanggal like '%$tgl_data%'"; //var_dump($strxok);
                     $trxok = mysqli_fetch_object(mysqli_query($konek, $strxok)); var_dump($trxok->jml);
                     $strxno = "select count(status) as jml from xml_test.log_purchase where vtype like '%$kode->kode%' and status = $sttsno and tanggal like '%$tgl_data%'"; //var_dump($strxno);
