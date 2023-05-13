@@ -58,7 +58,7 @@ date_default_timezone_set("Asia/Jakarta");
             if ($jam == $sek)
             {
                 var_dump($sek);
-                $tgl_data = "2022-06-26"; //date("Y-m-d", strtotime("yesterday"));
+                $tgl_data = "2022-06-27"; //date("Y-m-d", strtotime("yesterday"));
                 $sttsok = 4;
                 $sttsno = 2;
                 $ssql = "select distinct (vtype) as kode from xml_test.log_purchase where status = 4 and tanggal like '%$tgl_data%'"; //var_dump($ssql);
