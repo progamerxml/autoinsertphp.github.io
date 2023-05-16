@@ -53,11 +53,11 @@ date_default_timezone_set("Asia/Jakarta");
     <div style="width : 80%; margin:auto;">
         <?php
             $tanggal = date("Y-m-d", strtotime("yesterday")); echo "kemaren tanggal : ".$tanggal; echo " sekarang jam : ".date("H:i:s")."<br><br>";
-            $jam = date("H:i",strtotime("01:00")); //var_dump($jam);
-            $sek = date("H:i");
+            $jam = date("H",strtotime("15:00")); //var_dump($jam);
+            $sek = date("H");
             if ($jam == $sek)
             {
-                var_dump($sek);
+                
                 $tgl_data = "2022-06-27"; //date("Y-m-d", strtotime("yesterday"));
                 $sttsok = 4;
                 $sttsno = 2;
@@ -69,9 +69,7 @@ date_default_timezone_set("Asia/Jakarta");
                     $tsyntax = "select tglsukses from log_purchase where vtype like '%$kode->kode%' and status = $sttsok and tanggal like '%$tgl_data%'";
                     $wts = mysqli_fetch_object(mysqli_query($konek, $tsyntax)); $jam = date("H:i", strtotime($wts->tglsukses)); //echo $jam."<br>";
                     $strxok = "select count(status) as jml from xml_test.log_purchase where vtype like '%$kode->kode%' and status = $sttsok and tanggal like '%$tgl_data%'"; //var_dump($strxok);
-                    $trxok = mysqli_fetch_object(mysqli_query($konek, $strxok)); var_dump($trxok->jml);
-                    $strxno = "select count(status) as jml from xml_test.log_purchase where vtype like '%$kode->kode%' and status = $sttsno and tanggal like '%$tgl_data%'"; //var_dump($strxno);
-                    $trxno = mysqli_fetch_object(mysqli_query($konek, $strxno)); var_dump($trxno->jml);
+                    $trxok = mysqli_fetch_object(mysqli_query($konek, $strxok)); //var_dump($trxok->jml);
                     // echo $kode->kode."<br>";
                     $sisql = "insert into xml_test.test_xml (shift, trx, status, kode) VALUES ('07.00-14.30', $trxok->jml, $sttsok, '$kode->kode')";
                     mysqli_query($konek, $sisql);
